@@ -1,0 +1,1038 @@
+/* ==========================================================================
+   AROHI & ZEBRA ❤️ (15th November)
+   Ultra-HD Realistic 3D Hardcover Royal Book Stylesheet
+   ========================================================================== */
+
+:root {
+  --color-leather-dark: #1a0108;
+  --color-leather-base: #330312;
+  --color-leather-rich: #52071f;
+  --color-leather-highlight: #7a0c2f;
+  
+  --color-gold-light: #fff5ba;
+  --color-gold: #ffd700;
+  --color-gold-warm: #d4af37;
+  --color-gold-shadow: #87681c;
+  
+  --color-parchment-base: #fffbf5;
+  --color-parchment-edge: #f5e8d8;
+  --color-parchment-shadow: rgba(80, 20, 35, 0.08);
+
+  --color-text-title: #3b0616;
+  --color-text-body: #2d1820;
+  --color-text-quote: #6e0e29;
+
+  --font-heading: 'Cinzel Decorative', cursive;
+  --font-script: 'Great Vibes', cursive;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  
+  --book-width: min(520px, 92vw);
+  --book-height: min(690px, 80vh);
+}
+
+/* Universal Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: radial-gradient(circle at 50% 35%, #2a030f 0%, #150107 70%, #060002 100%);
+  font-family: var(--font-sans);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Background Canvases */
+#bg-canvas, #fireworks-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#fireworks-canvas {
+  z-index: 999;
+}
+
+/* Top Nav */
+.top-nav {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  max-width: 1050px;
+  padding: 16px 24px 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  background: rgba(40, 2, 13, 0.75);
+  backdrop-filter: blur(10px);
+  padding: 7px 18px;
+  border-radius: 30px;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 15px rgba(230, 28, 71, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.heart-pulse {
+  display: inline-block;
+  animation: heartPulse 1.4s infinite ease-in-out;
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.28); }
+  40% { transform: scale(1.08); }
+  60% { transform: scale(1.32); }
+}
+
+.audio-toggle-btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(40, 2, 13, 0.75);
+  backdrop-filter: blur(10px);
+  padding: 7px 18px;
+  border-radius: 30px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  font-size: 0.82rem;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.audio-toggle-btn:hover {
+  border-color: var(--color-gold);
+  background: rgba(82, 7, 31, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 28, 71, 0.5);
+}
+
+.audio-toggle-btn.playing {
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.45);
+}
+
+/* Scene Container */
+.scene-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  max-height: 84vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 1700px;
+}
+
+.book-perspective-wrapper {
+  position: relative;
+  width: var(--book-width);
+  height: var(--book-height);
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   REALISTIC 3D HARDCOVER BOOK ANATOMY
+   ========================================================================== */
+.royal-book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.9), 
+    0 0 45px rgba(230, 28, 71, 0.35);
+  border-radius: 6px 14px 14px 6px;
+  animation: floatingIdle 5s ease-in-out infinite;
+}
+
+@keyframes floatingIdle {
+  0%, 100% {
+    transform: translateY(0px) rotateX(1.5deg) rotateY(-1.5deg);
+  }
+  50% {
+    transform: translateY(-13px) rotateX(-1.5deg) rotateY(1.5deg);
+  }
+}
+
+/* Realistic 3D Spine On Left */
+.book-spine-left {
+  position: absolute;
+  left: -20px;
+  top: 0;
+  width: 22px;
+  height: 100%;
+  background: linear-gradient(to right, #120106 0%, #3d0416 35%, #5a0923 70%, #20020b 100%);
+  border-radius: 8px 0 0 8px;
+  box-shadow: 
+    inset 0 0 10px rgba(0,0,0,0.8),
+    inset -2px 0 5px rgba(255, 215, 0, 0.2);
+  z-index: 1;
+}
+
+/* Embossed Ribs on the Spine */
+.book-spine-left::before,
+.book-spine-left::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to bottom, #7a0c2f, #ffd700, #3d0416);
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+.book-spine-left::before { top: 20%; }
+.book-spine-left::after { bottom: 20%; }
+
+/* Page Thickness Edges (Stacked Paper Look on Right & Bottom) */
+.book-page-edges-right {
+  position: absolute;
+  right: -12px;
+  top: 6px;
+  width: 14px;
+  height: calc(100% - 12px);
+  background: repeating-linear-gradient(
+    to bottom,
+    #fdf6eb 0px,
+    #fdf6eb 2px,
+    #e8d3ba 3px,
+    #d9be9f 4px
+  );
+  border-right: 1px solid #c49f75;
+  box-shadow: 
+    inset 2px 0 5px rgba(0,0,0,0.35),
+    4px 0 10px rgba(0,0,0,0.4);
+  border-radius: 0 4px 4px 0;
+  z-index: 2;
+}
+
+.book-page-edges-bottom {
+  position: absolute;
+  bottom: -9px;
+  left: 6px;
+  height: 10px;
+  width: calc(100% - 10px);
+  background: repeating-linear-gradient(
+    to right,
+    #fdf6eb 0px,
+    #fdf6eb 2px,
+    #e8d3ba 3px,
+    #d9be9f 4px
+  );
+  border-bottom: 1px solid #c49f75;
+  box-shadow: 
+    inset 0 2px 5px rgba(0,0,0,0.35),
+    0 4px 8px rgba(0,0,0,0.4);
+  border-radius: 0 0 4px 4px;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   FRONT COVER (Rich Hardbound Leather & Gold Filigree)
+   ========================================================================== */
+.book-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 1.1s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.6s ease;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.cover-leather {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 40% 30%, rgba(255, 42, 95, 0.18) 0%, transparent 60%),
+    linear-gradient(135deg, var(--color-leather-rich) 0%, var(--color-leather-base) 45%, var(--color-leather-dark) 100%);
+  border-radius: 4px 12px 12px 4px;
+  border: 2px solid #570921;
+  box-shadow: 
+    inset 0 0 60px rgba(0, 0, 0, 0.9),
+    inset 0 0 15px rgba(255, 215, 0, 0.25);
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Ornate Corner Protectors */
+.corner-filigree {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--color-gold);
+  pointer-events: none;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.6));
+}
+
+.corner-filigree.top-left {
+  top: 14px;
+  left: 14px;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: 8px;
+}
+.corner-filigree.top-left::after {
+  content: '✦';
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 0.75rem;
+  color: var(--color-gold);
+}
+
+.corner-filigree.top-right {
+  top: 14px;
+  right: 14px;
+  border-left: none;
+  border-bottom: none;
+  border-top-right-radius: 8px;
+}
+.corner-filigree.top-right::after {
+  content: '✦';
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  font-size: 0.75rem;
+  color: var(--color-gold);
+}
+
+.corner-filigree.bottom-left {
+  bottom: 14px;
+  left: 14px;
+  border-right: none;
+  border-top: none;
+  border-bottom-left-radius: 8px;
+}
+.corner-filigree.bottom-left::after {
+  content: '✦';
+  position: absolute;
+  bottom: 2px;
+  left: 4px;
+  font-size: 0.75rem;
+  color: var(--color-gold);
+}
+
+.corner-filigree.bottom-right {
+  bottom: 14px;
+  right: 14px;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: 8px;
+}
+.corner-filigree.bottom-right::after {
+  content: '✦';
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+  font-size: 0.75rem;
+  color: var(--color-gold);
+}
+
+/* Double Embossed Gold Border */
+.embossed-border {
+  position: absolute;
+  inset: 12px;
+  border: 1.5px solid rgba(255, 215, 0, 0.45);
+  border-radius: 6px;
+  pointer-events: none;
+}
+.inner-border-line {
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(255, 215, 0, 0.35);
+  border-radius: 4px;
+}
+
+/* Cover Inner Content */
+.cover-inner-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 8px 4px;
+}
+
+.cover-badge-top {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  opacity: 0.9;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.cover-main-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 6.8vw, 3.4rem);
+  color: #fff;
+  background: linear-gradient(135deg, #ffffff 15%, var(--color-gold-light) 45%, var(--color-gold) 75%, var(--color-gold-warm) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 15px rgba(255, 215, 0, 0.45));
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+.cover-nickname {
+  font-family: var(--font-script);
+  font-size: clamp(1.6rem, 4.5vw, 2.1rem);
+  color: var(--color-gold-light);
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.7));
+  margin-top: -6px;
+}
+
+/* Cute Panda & Zebra Duo Artwork */
+.duo-artwork-container {
+  position: relative;
+  width: clamp(180px, 42vw, 240px);
+  height: clamp(135px, 32vw, 175px);
+  margin: 2px auto;
+}
+
+.artwork-halo {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.35) 0%, rgba(230, 28, 71, 0.25) 50%, transparent 75%);
+  animation: haloPulse 3.5s infinite alternate ease-in-out;
+}
+
+@keyframes haloPulse {
+  0% { transform: scale(0.92); opacity: 0.55; }
+  100% { transform: scale(1.12); opacity: 0.95; }
+}
+
+.duo-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.55));
+  transition: transform 0.4s ease;
+}
+
+.book-cover:hover .duo-svg {
+  transform: scale(1.04);
+}
+
+.cover-dedication {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.dedication-label {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.82rem;
+  color: rgba(255, 245, 186, 0.85);
+  letter-spacing: 0.5px;
+}
+
+.dedication-names {
+  font-family: var(--font-heading);
+  font-size: clamp(0.95rem, 2.8vw, 1.15rem);
+  letter-spacing: 1.5px;
+  color: var(--color-gold);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+.open-book-btn {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-warm) 50%, var(--color-gold-shadow) 100%);
+  color: #1a0108;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 215, 0, 0.55);
+  transition: all 0.3s ease;
+  margin-top: 4px;
+}
+
+.open-book-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 28px rgba(255, 215, 0, 0.85), 0 0 35px rgba(230, 28, 71, 0.6);
+}
+
+.btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+  animation: shineSwipe 2.6s infinite;
+}
+
+@keyframes shineSwipe {
+  0% { left: -100%; }
+  35%, 100% { left: 190%; }
+}
+
+/* Open Book State: Cover Flips Backwards to Left */
+.royal-book.is-open .book-cover {
+  transform: rotateY(-145deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   INNER PARCHMENT PAGES (Storybook Spreads)
+   ========================================================================== */
+.book-pages-deck {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: 4px 12px 12px 4px;
+  overflow: hidden;
+}
+
+.royal-book.is-open .book-pages-deck {
+  pointer-events: auto;
+}
+
+.page-sheet {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform-origin: left center;
+  transform: rotateY(90deg) scale(0.92);
+  pointer-events: none;
+  transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+}
+
+.page-sheet.active {
+  opacity: 1;
+  transform: rotateY(0deg) scale(1);
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.page-sheet.flipped-prev {
+  opacity: 0;
+  transform: rotateY(-100deg) scale(0.92);
+  pointer-events: none;
+}
+
+/* Parchment Paper Material */
+.parchment-sheet {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 50% 30%, #ffffff 0%, var(--color-parchment-base) 65%, var(--color-parchment-edge) 100%);
+  border-radius: 4px 12px 12px 4px;
+  border: 1.5px solid #d4af37;
+  box-shadow: 
+    inset 0 0 35px rgba(184, 134, 11, 0.15),
+    inset 30px 0 30px rgba(0, 0, 0, 0.08), /* realistic spine shadow on the left */
+    0 15px 35px rgba(0, 0, 0, 0.45);
+  padding: 32px 30px 24px 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/* Red Silk Ribbon Marker at Top */
+.ribbon-marker {
+  position: absolute;
+  top: 0;
+  left: 55px;
+  width: 16px;
+  height: 48px;
+  background: linear-gradient(to bottom, #b3002d 0%, #e61c47 70%, #990026 100%);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+  border-radius: 0 0 3px 3px;
+  pointer-events: none;
+}
+.ribbon-marker::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--color-parchment-base);
+}
+
+/* Gold Frame Inside Page */
+.gold-inner-frame {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* Page Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+  padding-bottom: 8px;
+  margin-top: 4px;
+}
+
+.page-chapter {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--color-gold-shadow);
+}
+
+.page-num-badge {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-title);
+  background: rgba(212, 175, 55, 0.15);
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Page Content & Typography */
+.page-content-scroll {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 4px;
+  overflow-y: auto;
+}
+
+.parchment-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 3.6vw, 1.55rem);
+  color: var(--color-text-title);
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+
+.parchment-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(0.82rem, 2.2vw, 0.92rem);
+  color: var(--color-gold-shadow);
+  margin-bottom: 8px;
+}
+
+.ornament-divider {
+  font-size: 0.85rem;
+  color: var(--color-gold-warm);
+  margin-bottom: 10px;
+  letter-spacing: 4px;
+}
+
+.love-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(0.92rem, 2.5vw, 1.05rem);
+  color: var(--color-text-quote);
+  line-height: 1.5;
+  background: rgba(255, 235, 240, 0.6);
+  padding: 8px 14px;
+  border-left: 3px solid #e61c47;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.parchment-text {
+  font-family: var(--font-sans);
+  font-size: clamp(0.85rem, 2.3vw, 0.95rem);
+  color: var(--color-text-body);
+  line-height: 1.62;
+  margin-bottom: 10px;
+}
+
+.parchment-script {
+  font-family: var(--font-script);
+  font-size: clamp(1.5rem, 4.2vw, 1.85rem);
+  color: #9e0e36;
+  line-height: 1.25;
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   CHAPTER III: CLASSROOM CORNER SPECIAL MEMORY STYLING
+   ========================================================================== */
+.special-memory-bg {
+  background: 
+    radial-gradient(ellipse at 50% 25%, #ffffff 0%, #fff7f2 60%, #faebdd 100%);
+}
+
+.memory-highlight {
+  background: rgba(255, 242, 230, 0.8);
+  border-left-color: var(--color-gold-warm);
+}
+
+.infinite-vow-box {
+  background: linear-gradient(135deg, rgba(82, 7, 31, 0.08) 0%, rgba(212, 175, 55, 0.15) 100%);
+  border: 1.5px dashed var(--color-gold-warm);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 6px 0 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vow-icon {
+  font-size: 1.5rem;
+  color: var(--color-gold-shadow);
+  filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.4));
+}
+
+.vow-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(0.86rem, 2.4vw, 0.98rem);
+  color: var(--color-text-title);
+  line-height: 1.45;
+  text-align: left;
+}
+
+/* Page Footer */
+.page-footer {
+  text-align: center;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(212, 175, 55, 0.35);
+}
+
+.tap-hint {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #8c0c2e;
+  opacity: 0.8;
+  animation: pulseHint 1.8s infinite;
+}
+
+@keyframes pulseHint {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+/* ==========================================================================
+   CHAPTER IX: GRAND FINALE CELEBRATION
+   ========================================================================== */
+.finale-sheet {
+  background: 
+    radial-gradient(ellipse at 50% 25%, #ffffff 0%, #fff0f5 65%, #ffdce6 100%);
+}
+
+.celebration-box {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.celebrate-btn {
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, #e61c47 0%, #b80c32 50%, #7d0520 100%);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(0.85rem, 2.5vw, 0.96rem);
+  padding: 12px 26px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 25px rgba(230, 28, 71, 0.55), 0 0 20px rgba(255, 215, 0, 0.4);
+  transition: all 0.3s ease;
+  animation: pulseCelebrateBtn 2s infinite ease-in-out;
+}
+
+@keyframes pulseCelebrateBtn {
+  0%, 100% { transform: scale(1); box-shadow: 0 8px 25px rgba(230, 28, 71, 0.55); }
+  50% { transform: scale(1.04); box-shadow: 0 10px 32px rgba(230, 28, 71, 0.85), 0 0 25px rgba(255, 215, 0, 0.6); }
+}
+
+.celebrate-btn:hover {
+  transform: translateY(-2px) scale(1.06);
+}
+
+.celebration-msg {
+  display: none;
+  font-family: var(--font-script);
+  font-size: clamp(1.4rem, 4vw, 1.85rem);
+  color: var(--color-text-title);
+  line-height: 1.25;
+  margin-top: 4px;
+  text-align: center;
+  animation: fadeInPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.celebration-msg.show {
+  display: block;
+}
+
+@keyframes fadeInPop {
+  0% { opacity: 0; transform: scale(0.7); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ==========================================================================
+   NAVIGATION CONTROLS BAR
+   ========================================================================== */
+.book-controls {
+  position: relative;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: all 0.4s ease;
+}
+
+.royal-book.is-open ~ .book-controls,
+.book-controls.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.nav-btn {
+  cursor: pointer;
+  background: rgba(40, 2, 13, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  color: var(--color-gold-light);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.84rem;
+  padding: 8px 18px;
+  border-radius: 20px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.nav-btn:hover {
+  background: var(--color-leather-rich);
+  border-color: var(--color-gold);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(230, 28, 71, 0.5);
+}
+
+.pagination-dots {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  width: 20px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--color-gold), #e61c47);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 10px rgba(230, 28, 71, 0.6);
+}
+
+/* Footer Credit */
+.bottom-credit {
+  position: relative;
+  z-index: 20;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: rgba(255, 215, 0, 0.7);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  padding: 8px 0 16px 0;
+  text-align: center;
+}
+
+/* Floating Sparkle Trail */
+.sparkle-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1000;
+  border-radius: 50%;
+  animation: sparkleFade 0.9s forwards ease-out;
+}
+
+@keyframes sparkleFade {
+  0% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -80px) scale(0) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   MOBILE & RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 480px) {
+  :root {
+    --book-width: 92vw;
+    --book-height: 76vh;
+  }
+
+  .top-nav {
+    padding: 10px 12px 0 12px;
+  }
+
+  .date-badge, .audio-toggle-btn {
+    font-size: 0.74rem;
+    padding: 5px 12px;
+  }
+
+  .cover-leather, .parchment-sheet {
+    padding: 22px 18px 18px 22px;
+  }
+
+  .ribbon-marker {
+    left: 36px;
+    height: 38px;
+    width: 14px;
+  }
+
+  .duo-artwork-container {
+    width: 175px;
+    height: 125px;
+  }
+
+  .cover-main-title {
+    font-size: 2.3rem;
+  }
+
+  .cover-nickname {
+    font-size: 1.5rem;
+  }
+
+  .parchment-title {
+    font-size: 1.15rem;
+  }
+
+  .love-quote {
+    font-size: 0.88rem;
+    padding: 6px 10px;
+    margin-bottom: 8px;
+  }
+
+  .parchment-text {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .parchment-script {
+    font-size: 1.35rem;
+  }
+
+  .open-book-btn, .celebrate-btn {
+    padding: 10px 22px;
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-height: 720px) {
+  :root {
+    --book-height: 74vh;
+  }
+
+  .duo-artwork-container {
+    height: 120px;
+    width: 160px;
+  }
+
+  .cover-main-title {
+    font-size: 2.1rem;
+  }
+
+  .parchment-title {
+    font-size: 1.15rem;
+  }
+
+  .love-quote {
+    margin-bottom: 4px;
+  }
+}

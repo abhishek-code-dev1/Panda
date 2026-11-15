@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happy Birthday, My Arohi (Panda) 🐼🦓❤️ | 15th November</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 3D Background: Animated Floating Red Hearts & Star Dust -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Interactive Sparkle Particle Container -->
+  <div id="cursor-trail"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="top-nav">
+    <div class="date-badge">
+      <span class="heart-pulse">❤️</span> 15th November • Arohi's Day
+    </div>
+    <div class="audio-toggle-btn" id="music-toggle" title="Play / Pause Romantic Melody">
+      <span class="music-icon" id="music-icon">🎵</span>
+      <span class="music-text" id="music-text">Romantic Melody: Off</span>
+    </div>
+  </header>
+
+  <!-- Main 3D Scene Wrapper -->
+  <main class="scene-container">
+    
+    <!-- 3D Perspective Book Wrapper -->
+    <div class="book-perspective-wrapper" id="book-wrapper">
+      
+      <!-- The Realistic 3D Hardcover Book -->
+      <div class="royal-book" id="royal-book">
+        
+        <!-- Book Left Spine & Pages Rim Depth (3D Book Anatomy) -->
+        <div class="book-spine-left"></div>
+        <div class="book-page-edges-right"></div>
+        <div class="book-page-edges-bottom"></div>
+
+        <!-- ==================== FRONT COVER ==================== -->
+        <div class="book-cover" id="cover-page">
+          <div class="cover-leather">
+            <!-- Golden Ornate Corners -->
+            <div class="corner-filigree top-left"></div>
+            <div class="corner-filigree top-right"></div>
+            <div class="corner-filigree bottom-left"></div>
+            <div class="corner-filigree bottom-right"></div>
+
+            <!-- Embossed Gold Border -->
+            <div class="embossed-border">
+              <div class="inner-border-line"></div>
+            </div>
+
+            <!-- Cover Content -->
+            <div class="cover-inner-content">
+              <div class="cover-badge-top">A Love Story Written In The Stars</div>
+              
+              <h1 class="cover-main-title">Arohi</h1>
+              <div class="cover-nickname">"My Sweetest Panda" 🐼</div>
+              
+              <!-- Cute Panda & Zebra Duo Vector Artwork -->
+              <div class="duo-artwork-container">
+                <div class="artwork-halo"></div>
+                <svg class="duo-svg" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="cheekPink" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#ff94a4" stop-opacity="0.8"/>
+                      <stop offset="100%" stop-color="#ff94a4" stop-opacity="0"/>
+                    </radialGradient>
+                    <linearGradient id="goldCrown" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ffe066"/>
+                      <stop offset="100%" stop-color="#d4af37"/>
+                    </linearGradient>
+                    <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ff2a5f"/>
+                      <stop offset="100%" stop-color="#a80529"/>
+                    </linearGradient>
+                  </defs>
+
+                  <!-- ZEBRA (Left - He loves her fiercely) -->
+                  <g class="zebra-character" transform="translate(25, 20)">
+                    <!-- Zebra Ears with pink inside -->
+                    <ellipse cx="40" cy="40" rx="9" ry="18" transform="rotate(-15 40 40)" fill="#ffffff" stroke="#222" stroke-width="2"/>
+                    <ellipse cx="40" cy="40" rx="5" ry="12" transform="rotate(-15 40 40)" fill="#ffb8c6"/>
+                    <!-- Zebra Mane -->
+                    <path d="M 52,48 Q 55,30 62,35 Q 65,50 68,40 Q 72,55 76,45" fill="none" stroke="#222" stroke-width="6" stroke-linecap="round"/>
+                    <!-- Zebra Head & Snout -->
+                    <ellipse cx="62" cy="75" rx="30" ry="26" fill="#ffffff" stroke="#222" stroke-width="2"/>
+                    <ellipse cx="48" cy="88" rx="16" ry="14" fill="#333333"/>
+                    <!-- Nostril -->
+                    <circle cx="45" cy="86" r="2.5" fill="#ffffff"/>
+                    <!-- Zebra Eye & Blush -->
+                    <circle cx="68" cy="70" r="4.5" fill="#222222"/>
+                    <circle cx="70" cy="68" r="1.5" fill="#ffffff"/>
+                    <circle cx="74" cy="80" r="7" fill="url(#cheekPink)"/>
+                    <!-- Zebra Stripes -->
+                    <path d="M 60,54 Q 54,62 58,68" stroke="#222" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M 72,55 Q 76,64 74,70" stroke="#222" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M 78,84 Q 85,88 88,96" stroke="#222" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <!-- Zebra Body & Arm -->
+                    <ellipse cx="78" cy="122" rx="30" ry="24" fill="#ffffff" stroke="#222" stroke-width="2"/>
+                    <path d="M 70,110 L 88,110" stroke="#222" stroke-width="3.5" stroke-linecap="round"/>
+                    <path d="M 72,122 L 92,122" stroke="#222" stroke-width="3.5" stroke-linecap="round"/>
+                    <!-- Hand holding heart -->
+                    <ellipse cx="94" cy="115" rx="10" ry="14" transform="rotate(35 94 115)" fill="#222222"/>
+                  </g>
+
+                  <!-- PANDA (Right - Arohi, cute, blushing, wearing crown) -->
+                  <g class="panda-character" transform="translate(110, 15)">
+                    <!-- Panda Ears -->
+                    <circle cx="42" cy="42" r="14" fill="#1f1b24"/>
+                    <circle cx="98" cy="42" r="14" fill="#1f1b24"/>
+                    <!-- Panda Body -->
+                    <ellipse cx="70" cy="125" rx="34" ry="28" fill="#ffffff" stroke="#1f1b24" stroke-width="2"/>
+                    <!-- Arm holding the heart -->
+                    <ellipse cx="44" cy="120" rx="11" ry="15" transform="rotate(-25 44 120)" fill="#1f1b24"/>
+                    <ellipse cx="95" cy="120" rx="11" ry="15" transform="rotate(25 95 120)" fill="#1f1b24"/>
+                    <!-- Panda Head -->
+                    <ellipse cx="70" cy="78" rx="36" ry="30" fill="#ffffff" stroke="#1f1b24" stroke-width="2"/>
+                    <!-- Eye Patches & Big Cute Eyes -->
+                    <ellipse cx="54" cy="75" rx="12" ry="10" transform="rotate(-15 54 75)" fill="#1f1b24"/>
+                    <ellipse cx="86" cy="75" rx="12" ry="10" transform="rotate(15 86 75)" fill="#1f1b24"/>
+                    <circle cx="55" cy="74" r="4.5" fill="#ffffff"/>
+                    <circle cx="56.5" cy="72.5" r="2" fill="#ffffff"/>
+                    <circle cx="85" cy="74" r="4.5" fill="#ffffff"/>
+                    <circle cx="86.5" cy="72.5" r="2" fill="#ffffff"/>
+                    <!-- Blushing Cheeks -->
+                    <circle cx="45" cy="85" r="8" fill="url(#cheekPink)"/>
+                    <circle cx="95" cy="85" r="8" fill="url(#cheekPink)"/>
+                    <!-- Cute Nose & Smile -->
+                    <ellipse cx="70" cy="82" rx="4.5" ry="3.5" fill="#1f1b24"/>
+                    <path d="M 67,87 Q 70,90 73,87" stroke="#1f1b24" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <!-- Princess Crown on Panda -->
+                    <path d="M 58,45 L 63,54 L 70,42 L 77,54 L 82,45 L 80,58 L 60,58 Z" fill="url(#goldCrown)" stroke="#d4af37" stroke-width="1.2"/>
+                    <circle cx="70" cy="40" r="2.2" fill="#ff2a5f"/>
+                  </g>
+
+                  <!-- Sacred Connected Golden Heart In Their Hands -->
+                  <g class="shared-heart" transform="translate(108, 110)">
+                    <path d="M 12,0 C 8,-9 -4,-9 -4,1 C -4,9 12,19 12,19 C 12,19 28,9 28,1 C 28,-9 16,-9 12,0 Z" fill="url(#heartGrad)" filter="drop-shadow(0 3px 6px rgba(255, 42, 95, 0.7))"/>
+                    <text x="12" y="7" font-size="7" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" fill="#ffffff" text-anchor="middle">A &amp; Z</text>
+                  </g>
+                </svg>
+              </div>
+
+              <!-- Author / Dedication -->
+              <div class="cover-dedication">
+                <span class="dedication-label">Dedicated with Infinite Love</span>
+                <span class="dedication-names">Zebra 🦓 &amp; Arohi 🐼</span>
+              </div>
+
+              <!-- Open Button -->
+              <button class="open-book-btn" id="open-btn">
+                <span>Open Our Story</span>
+                <span class="btn-shine"></span>
+                <span class="btn-arrow">📖 ✨</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== INNER PAGES DECK ==================== -->
+        <div class="book-pages-deck" id="pages-deck">
+
+          <!-- PAGE 1: Birthday Wish to Arohi -->
+          <article class="book-page page-sheet active" data-page="1">
+            <div class="parchment-sheet">
+              <div class="gold-inner-frame"></div>
+              <div class="ribbon-marker"></div>
+              
+              <div class="page-header">
+                <span class="page-chapter">Chapter I • 15th November</span>
+                <span class="page-num-badge">01 / 09</span>
+              </div>
+
+              <div class="page-content-scroll">
+                <h2 class="parchment-title">Happy Birthday, My Arohi!</h2>
+                <div class="parchment-subtitle">To My Precious Panda • 15th November</div>
+
+                <div class="ornament-divider">✦ &nbsp; ❦ &nbsp; ✦</div>
+
+                <p class="love-quote">
+                  "In a universe of billions of people, my soul found its peaceful home the moment you walked into my life."
+                </p>
+
+                <p class="parchment-text">
+                  Happy Birthday to the most extraordinary woman, my safest haven, and my forever sweetheart, <strong>Arohi</strong>. Today is not just another date on the calendar — it is the blessed day the heavens gave this world its most beautiful soul, and gave me my purpose.
+                </p>
+
+                <p class="parchment-text">
+                  Every beat of my heart belongs to you, Panda. As you turn these pages, let me walk you through the sacred bond we share, our most unforgettable moment, and every single detail that makes me fall in love with you all over again every sunrise.
+                </p>
+
+                <p class="parchment-script">
+                  Yours endlessly, Zebra ❤️
+                </p>
+              </div>
+
+              <div class="page-footer">
+                <span class="tap-hint">Tap anywhere to turn page ➔</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PAGE 2: The Sacred Bond of Love & Trust -->
+          <article class="book-page page-sheet" data-page="2">
+            <div class="parchment-sheet">
+              <div class="gold-inner-frame"></div>
+              <div class="ribbon-marker"></div>
+              
+              <div class="page-header">
+                <span class="page-chapter">Chapter II • Our Foundation</span>
+                <span class="page-num-badge">02 / 09</span>
+              </div>
+
+              <div class="page-content-scroll">
+                <h2 class="parchment-title">Our Sacred Bond</h2>
+                <div class="parchment-subtitle">A Love Rooted in Deep, Unshakable Trust</div>
+
+                <div class="ornament-divider">✦ &nbsp; ❦ &nbsp; ✦</div>
+
+                <p class="love-quote">
+                  "True love is not just about gazing into each other’s eyes; it is knowing that whatever storm arrives, we stand undefeated together."
+                </p>
+
+                <p class="parchment-text">
+                  What you and I share, Arohi, is so much deeper than ordinary love. It is an unshakable sanctuary of <strong>trust, loyalty, and deep understanding</strong>. With you, I never have to hide who I am; with you, every fear melts into courage.
+                </p>
+
+                <p class="parchment-text">
+                  You trust me with your heart, and I guard that trust with my life. We are Panda and Zebra — different in our own cute ways, but locked together in our souls. No distance, no difficulty, and no passage of time can ever weaken the sacred bond we have built.
+                </p>
+
+                <p class="parchment-script">
+                  You are my sanctuary, my partner, and my faith.
+                </p>
+              </div>
+
+              <div class="page-footer">
+                <span class="tap-hint">Tap anywhere to turn page ➔</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PAGE 3: The Classroom Corner Handhold (Special Memory) -->
+          <article class="book-page page-sheet" data-page="3">
+            <div class="parchment-sheet special-memory-bg">
+              <div class="gold-inner-frame"></div>
+              <div class="ribbon-marker"></div>
+              
+              <div class="page-header">
+                <span class="page-chapter">Chapter III • The First Touch</span>
+                <span class="page-num-badge">03 / 09</span>
+              </div>
+
+              <div class="page-content-scroll">
+                <h2 class="parchment-title">The Classroom Corner</h2>
+                <div class="parchment-subtitle">The Moment Eternity Began Between Us 🤝✨</div>
+
+                <div class="ornament-divider">✦ &nbsp; ❦ &nbsp; ✦</div>
+
+                <p class="love-quote memory-highlight">
+                  "I remember that quiet corner of the classroom like it happened just a heartbeat ago..."
+                </p>
+
+                <p class="parchment-text">
+                  The room was filled with noise and chatter, yet the entire universe narrowed down to just you and me standing near the corner. My heart was pounding like thunder against my chest. 
+                </p>
+
+                <p class="parchment-text">
+                  Then, I gently reached out and <strong>held your hand for the very first time</strong>. That soft, electric warmth running through my fingers... In that quiet classroom corner, an unspoken vow settled into my soul:
+                </p>
+
+                <div class="infinite-vow-box">
+                  <span class="vow-icon">♾️</span>
+                  <p class="vow-text">
+                    "I will never, ever let go of this hand. Not today, not tomorrow, not for all of infinity."
+                  </p>
+                </div>
+
+                <p class="parchment-text">
+                  Years may pass, but every time I hold your hand today, I still feel that same innocent, passionate, classroom corner magic.
+                </p>
+              </div>
+
+              <div class="page-footer">
+                <span class="tap-hint">Tap anywhere to turn page ➔</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PAGE 4: Cat Eyes -->
+          <article class="book-page page-sheet" data-page="4">
+            <div class="parchment-sheet">
+              <div class="gold-inner-frame"></div>
+              <div class="ribbon-marker"></div>
+              
+              <div class="page-header">
+                <span class="page-chapter">Chapter IV • Tareef</span>
+                <span class="page-num-badge">04 / 09</span>
+              </div>
+
+              <div class="page-content-scroll">
+                <h2 class="parchment-title">Those Enchanting Cat Eyes</h2>
+                <div class="parchment-subtitle">Billi Jaisi Noorani Aankhein ✨👁️</div>
+
+                <div class="ornament-divider">✦ &nbsp; ❦ &nbsp; ✦</div>
+
+                <p class="love-quote">
+                  "Your eyes aren't just beautiful; they are an enchanting spell I pray never breaks."
+                </p>
+
+                <p class="parchment-text">
+                  Like deep, mesmerizing pools kissed by the midnight moon, your feline cat eyes hold a charm that renders the entire world quiet. That subtle, playful tilt at the edges, the fierce sparkle of intellect, and the pure warmth when they soften as you look at me...
+                </p>
+
+                <p class="parchment-text">
+                  And when you laugh, the way your eyes crinkle with pure happiness is my absolute favorite sight in existence. One single gaze from your cat eyes, Arohi, and I am reminded why I fell so deeply in love.
+                </p>
+              </div>
+
+              <div class="page-footer">
+                <span class="tap-hint">Tap anywhere to turn page ➔</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PAGE 5: Silky Hair -->
+          <article class="book-page page-sheet" data-page="5">
+            <div class="parchment-sheet">
+              <div class="gold-inner-frame"></div>
+              <div class="ribbon-marker"></div>
+              
+              <div class="page-header">
+                <span class="page-chapter">Chapter V • Tareef</span>
+                <span class="page-num-badge">05 / 09</span>
+              </div>
+
+              <div class="page-content-scroll">
+                <h2 class="parchment-title">Your Crown of Midnight Silk</h2>
+                <div class="parchment-subtitle">Teri Reshmi Zulfen 🌙✨</div>
+
+                <div class="ornament-divider">✦ &nbsp; ❦ &nbsp; ✦</div>
+
+                <p class="love-quote">
+                  "Whenever your hair cascades across your cheeks, time forgets to move forward."
+                </p>
+
+                <p class="parchment-text">
+                  Running my fingers through your hair feels like brushing against midnight silk spun by angels. Even the gentlest breeze seems blessed just to have a chance to dance through your strands.
+                </p>
+
+                <p class="parchment-text">
+                  The gentle, familiar fragrance of your hair is my supreme comfort — the scent of quiet midnight talks, tight hugs after long days, and the serene feeling of laying beside you with nowhere else to be.
+                </p>
+              </div>
+
+              <div class="page-footer">
+                <span class="tap-hint">Tap anywhere to turn page ➔</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PAGE 6: Cute Nose -->
+          <article class="book-page page-sheet" data-page="6">
+            <div class="parchment-sheet">
+              <div class="gold-inner-frame"></div>
+              <div class="ribbon-marker"></div>
+              
+              <div class="page-header">
+                <span class="page-chapter">Chapter VI • Tareef</span>
+                <span class="page-num-badge">06 / 09</span>
+              </div>
+
+              <div class="page-content-scroll">
+                <h2 class="parchment-title">Your Sweet, Lovable Nose</h2>
+                <div class="parchment-subtitle">The Cutest Treasure in Creation 🌸👃</div>
+
+                <div class="ornament-divider">✦ &nbsp; ❦ &nbsp; ✦</div>
+
+                <p class="love-quote">
+                  "The most adorable sculpture the heavens ever shaped."
+                </p>
+
+                <p class="parchment-text">
+                  The way your little nose scrunches up when you giggle uncontrollably, or when you playfully pretend to be annoyed with me, steals my heart anew every single time.
+                </p>
+
+                <p class="parchment-text">
+                  It was carved for gentle Eskimo kisses, soft butterfly touches, and stolen affectionate nuzzles when we are wrapped together in a blanket. It is the heart-melting signature of my cute Panda.
+                </p>
+              </div>
+
+              <div class="page-footer">
+                <span class="tap-hint">Tap anywhere to turn page ➔</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PAGE 7: Gentle Hands -->
+          <article class="book-page page-sheet" data-page="7">
+            <div class="parchment-sheet">
+              <div class="gold-inner-frame"></div>
+              <div class="ribbon-marker"></div>
+              
+              <div class="page-header">
+                <span class="page-chapter">Chapter VII • Tareef</span>
+                <span class="page-num-badge">07 / 09</span>
+              </div>
+
+              <div class="page-content-scroll">
+                <h2 class="parchment-title">The Warmth of Your Hands</h2>
+                <div class="parchment-subtitle">My Healing Haven &amp; Strength 🤝🤍</div>
+
+                <div class="ornament-divider">✦ &nbsp; ❦ &nbsp; ✦</div>
+
+                <p class="love-quote">
+                  "The exact same hand from that classroom corner, now my forever anchor."
+                </p>
+
+                <p class="parchment-text">
+                  Your hands are so delicately soft, so warm and tender, yet they carry the greatest strength in my life. Whenever your fingers weave through mine, every fear, exhaustion, and worry simply vanishes into the quiet.
+                </p>
+
+                <p class="parchment-text">
+                  Your hands fit so impeccably inside mine that it feels as if God designed them to be held by me and only me, through every high, every low, and every journey ahead.
+                </p>
+              </div>
+
+              <div class="page-footer">
+                <span class="tap-hint">Tap anywhere to turn page ➔</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PAGE 8: Grace & Steps -->
+          <article class="book-page page-sheet" data-page="8">
+            <div class="parchment-sheet">
+              <div class="gold-inner-frame"></div>
+              <div class="ribbon-marker"></div>
+              
+              <div class="page-header">
+                <span class="page-chapter">Chapter VIII • Tareef</span>
+                <span class="page-num-badge">08 / 09</span>
+              </div>
+
+              <div class="page-content-scroll">
+                <h2 class="parchment-title">The Grace of Your Steps</h2>
+                <div class="parchment-subtitle">Poetry in Motion, Delicate Elegance 🕊️✨</div>
+
+                <div class="ornament-divider">✦ &nbsp; ❦ &nbsp; ✦</div>
+
+                <p class="love-quote">
+                  "There is pure melody in the effortless elegance with which you walk."
+                </p>
+
+                <p class="parchment-text">
+                  The way you carry yourself with quiet poise, delicate grace, and natural beauty feels like watching cherry blossoms gently floating on a quiet stream.
+                </p>
+
+                <p class="parchment-text">
+                  Every step you take towards me turns ordinary ground into sacred soil. Just walking by your side, holding your hand as the world rushes past, makes me the proudest and happiest man on this earth.
+                </p>
+              </div>
+
+              <div class="page-footer">
+                <span class="tap-hint">Tap anywhere to turn page ➔</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PAGE 9: Finale & Infinite Promise -->
+          <article class="book-page page-sheet" data-page="9">
+            <div class="parchment-sheet finale-sheet">
+              <div class="gold-inner-frame"></div>
+              <div class="ribbon-marker"></div>
+              
+              <div class="page-header">
+                <span class="page-chapter">Chapter IX • Forever</span>
+                <span class="page-num-badge">09 / 09</span>
+              </div>
+
+              <div class="page-content-scroll">
+                <h2 class="parchment-title">Forever &amp; Always</h2>
+                <div class="parchment-subtitle">Arohi &amp; Zebra • Until The End of Time 💍❤️</div>
+
+                <div class="ornament-divider">✦ &nbsp; ❦ &nbsp; ✦</div>
+
+                <p class="love-quote">
+                  "I held your hand in that classroom corner intending to keep it forever, and today my promise is stronger than ever."
+                </p>
+
+                <p class="parchment-text">
+                  Thank you for being my strength, my laughter, my cutest Panda, and the queen of my life. I promise to pamper you when you are sleepy, to love you on your toughest days, and to celebrate your birthday every year with all the stars in the universe.
+                </p>
+
+                <!-- Celebration Trigger Box -->
+                <div class="celebration-box">
+                  <button class="celebrate-btn" id="celebrate-btn">
+                    <span class="btn-heart-icon">💖</span>
+                    <span>Send Infinite Love to Arohi</span>
+                    <span class="btn-sparkle-icon">✨</span>
+                  </button>
+                  <div class="celebration-msg" id="celebration-msg">
+                    🎉 Happy Birthday Arohi! Zebra loves you for infinite! 🐼🦓❤️ 🎉
+                  </div>
+                </div>
+              </div>
+
+              <div class="page-footer">
+                <span class="tap-hint" id="restart-book-hint">Tap to Close &amp; Rewatch ↺</span>
+              </div>
+            </div>
+          </article>
+
+        </div> <!-- /pages-deck -->
+
+      </div> <!-- /royal-book -->
+
+    </div> <!-- /book-perspective-wrapper -->
+
+    <!-- Navigation Controls Bar -->
+    <nav class="book-controls" id="book-controls">
+      <button class="nav-btn prev-btn" id="prev-btn" title="Previous Page">
+        <span>❮ Prev</span>
+      </button>
+      
+      <div class="pagination-dots" id="dots-container">
+        <!-- 9 Page Indicator Dots injected via JS -->
+      </div>
+
+      <button class="nav-btn next-btn" id="next-btn" title="Next Page">
+        <span>Next ❯</span>
+      </button>
+    </nav>
+
+  </main>
+
+  <footer class="bottom-credit">
+    Crafted with Infinite Love by Zebra 🦓 for his Panda Arohi 🐼 • 15 November
+  </footer>
+
+  <!-- Confetti and Fireworks Canvas -->
+  <canvas id="fireworks-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
